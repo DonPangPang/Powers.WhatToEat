@@ -1,0 +1,51 @@
+﻿@page "/"
+@inject NavigationManager NavigationManager
+@inject IJSRuntime JS
+
+<PageTitle>Login</PageTitle>
+
+@*<h1>Hello, world!</h1>
+
+    Welcome to your new app.
+
+    <SurveyPrompt Title="How is Blazor working for you?" />
+*@
+
+<style>
+    .login-panel {
+        margin-top: 7rem;
+    }
+
+        .login-panel > img {
+            margin-top: 1.25rem;
+            margin-bottom: 1.25rem;
+        }
+</style>
+
+<div class="login-panel">
+    <img src="./icon-192.png" class="rounded mx-auto d-block" alt="..." />
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">登录</span>
+        </div>
+        <input type="text" @bind-value="Username" class="form-control" placeholder="请输入账号" aria-label="Username" aria-describedby="basic-addon1" />
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">密码</span>
+        </div>
+        <input type="password" @bind-value="Password" class="form-control" placeholder="请输入密码" aria-label="Username" aria-describedby="basic-addon1">
+    </div>
+    <button type="button" @onclick="Login" class="btn btn-primary btn-block" style="width:100%;margin-top:30px;">登录</button>
+</div>
+
+@code {
+    private string Username { get; set; }
+
+    private string Password { get; set; }
+
+    private async void Login()
+    {
+        NavigationManager.NavigateTo($"counter?username={Username}");
+    }
+}
