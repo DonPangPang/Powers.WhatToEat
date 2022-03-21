@@ -11,6 +11,11 @@
         .login-panel > img {
             width: 50%;
         }
+
+    .from-box{
+         display: flex; /**/
+            justify-content: center; /*水平居中*/
+    }
 </style>
 
 <center class="login-panel">
@@ -18,12 +23,12 @@
 </center>
 
 
-<center>
+<div class="from-box">
     <Form Loading="loading" Model="@model"
       LabelColSpan="8"
       WrapperColSpan="16"
       OnFinish="OnFinish"
-      OnFinishFailed="OnFinishFailed" Style="width:80%;">
+      OnFinishFailed="OnFinishFailed" style="">
     <FormItem>
         <Input Placeholder="请输入账号" Size="@InputSize.Large" @bind-Value="@context.Username">
         <Prefix>
@@ -44,14 +49,14 @@
         </Button>
     </FormItem>
 </Form>
-</center>
+</div>
 
 @code {
     public class Model
     {
-        [Required]
+        [Required(ErrorMessage = "账号不能为空！")]
         public string Username { get; set; }
-        [Required]
+        [Required(ErrorMessage = "密码不能为空！")]
         public string Password { get; set; }
         public bool RememberMe { get; set; } = true;
     }
