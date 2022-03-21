@@ -3,51 +3,51 @@
 @using System.ComponentModel.DataAnnotations
 @inject NavigationManager NavigationManager
 
-
-<h3>Login</h3>
-
 <style>
     .login-panel {
-        margin-top: 7rem;
+        margin-top: 120px;
     }
 
-    .login-panel > img {
-        margin-top: 1.25rem;
-        margin-bottom: 1.25rem;
-    }
+        .login-panel > img {
+            width: 50%;
+        }
 </style>
 
-@* <div class="login-panel">
+<center class="login-panel">
     <img src="./pro_icon.svg" class="rounded mx-auto d-block" alt="..." />
-        
-</div>*@
-<Form Loading="loading" Model="@model" 
+</center>
+
+
+<center>
+    <Form Loading="loading" Model="@model"
       LabelColSpan="8"
       WrapperColSpan="16"
-      OnFinish="OnFinish" 
-      OnFinishFailed="OnFinishFailed">
-    <FormItem Label="账号" >
-        <Input @bind-Value="@context.Username"/>
+      OnFinish="OnFinish"
+      OnFinishFailed="OnFinishFailed" Style="width:80%;">
+    <FormItem>
+        <Input Placeholder="请输入账号" Size="@InputSize.Large" @bind-Value="@context.Username">
+        <Prefix>
+            <Icon Type="user" />
+        </Prefix>
+        </Input>
     </FormItem>
-    <FormItem Label="密码">
-        <InputPassword @bind-Value="@context.Password" />
+    <FormItem>
+        <InputPassword Placeholder="请输入密码" Size="@InputSize.Large" @bind-Value="@context.Password">
+        <Prefix>
+            <Icon Type="lock" />
+        </Prefix>
+        </InputPassword>
     </FormItem>
-    <FormItem WrapperColOffset="8" WrapperColSpan="16">
-        <Checkbox @bind-Value="context.RememberMe">Remember me</Checkbox>
-    </FormItem>
-    <FormItem WrapperColOffset="8" WrapperColSpan="16">
-        <Button Type="@ButtonType.Primary" HtmlType="submit">
-            Submit
+    <FormItem>
+        <Button Type="@ButtonType.Primary" HtmlType="submit" Style="width:100%;margin-top:20px;" OnClick="NavigateToIndex">
+            登录
         </Button>
     </FormItem>
 </Form>
-<div style="margin-top: 16px">
-    Loading state：
-    <Switch Checked=loading OnChange=toggle />
-</div>
+</center>
 
 @code {
-     public class Model
+    public class Model
     {
         [Required]
         public string Username { get; set; }
@@ -74,6 +74,12 @@
 
     private void NavigateToIndex()
     {
+        if (string.IsNullOrEmpty(model.Username) || string.IsNullOrEmpty(model.Password))
+        {
+            
+            return;
+        }
+
         NavigationManager.NavigateTo($"counter?username={model.Username}");
     }
 }
