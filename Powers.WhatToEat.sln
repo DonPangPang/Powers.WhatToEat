@@ -13,9 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Powers.WhatToEat.Test", "te
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Powers.WhatToEat.Shared", "src\Powers.WhatToEat.Shared\Powers.WhatToEat.Shared.csproj", "{774A92C2-AD2C-4BBC-93D1-9AF52587C761}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Powers.WhatToEat.App", "src\Powers.WhatToEat.App\Powers.WhatToEat.App.csproj", "{FA7A935D-AA80-4480-89AA-5E15183CCA02}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Powers.WhatToEat.App", "src\Powers.WhatToEat.App\Powers.WhatToEat.App.csproj", "{FA7A935D-AA80-4480-89AA-5E15183CCA02}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Powers.WhatToEat.AntApp", "src\Powers.WhatToEat.AntApp\Powers.WhatToEat.AntApp.csproj", "{1B082B44-996A-4AB6-ABB9-C2243C65697A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Powers.WhatToEat.AntApp", "src\Powers.WhatToEat.AntApp\Powers.WhatToEat.AntApp.csproj", "{1B082B44-996A-4AB6-ABB9-C2243C65697A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
