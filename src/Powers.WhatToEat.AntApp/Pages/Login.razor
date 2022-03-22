@@ -2,6 +2,7 @@
 @using System.Text.Json
 @using System.ComponentModel.DataAnnotations
 @inject NavigationManager NavigationManager
+@inject NotificationService NotificationService
 
 <style>
     .login-panel {
@@ -70,6 +71,12 @@
 
     private void OnFinishFailed(EditContext editContext)
     {
+        NotificationService.Open(new NotificationConfig()
+        {
+            NotificationType = NotificationType.Success,
+            Message = "title",
+            Description = "This is the content of the notification. This is the content of the notification. This is the content of the notification."
+        });
         Console.WriteLine($"Failed:{JsonSerializer.Serialize(model)}");
     }
 
